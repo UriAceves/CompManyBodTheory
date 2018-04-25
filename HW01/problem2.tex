@@ -1,0 +1,93 @@
+\begin{questions}
+\question{
+2 electrons
+}
+\begin{solution}
+Let us write the concerning determinant
+\begin{equation}
+  \begin{vmatrix}
+     \phi_{m_a}(\vec{r}_1,\sigma_1) & \phi_{m_a}(\vec{r}_2,\sigma_1)\\
+     \phi_{m_b}(\vec{r}_1,\sigma_2) & \phi_{m_b}(\vec{r}_2,\sigma_2)
+  \end{vmatrix} = \phi_{m_a}(\vec{r}_1,\sigma_1)\phi_{m_b}(\vec{r}_2,\sigma_2) - \phi_{m_a}(\vec{r}_2,\sigma_1)\phi_{m_b}(\vec{r}_1,\sigma_2).
+  \label{slat:det}
+\end{equation}
+Now if we decouple the wafunctions as $\phi_{n_a}(\vec{r},\sigma) = \psi_{n_a}(\vec{r})\chi_p(\sigma)$, and the orbital quantum numbers are the same ($m_a = m_b$) the right hand side of eq. \ref{slat:det} turns into
+\begin{equation}
+  \psi_{m_a}(\vec{r}_1)\psi_{m_a}(\vec{r}_2)(\chi_1(\sigma_1)\chi_2(\sigma_2) - \chi_1(\sigma_1)\chi_2(\sigma_2)).
+  \label{eq:numbs}
+\end{equation}
+If we take $\sigma_1 = \sigma_2$ then all the quantum numbers of both electrons would be the same, since this is forbidden by Pauli's principle the conclusion is that in that case
+\begin{equation*}
+  \hlgreen{\Psi(\vec{r}_1,\vec{r}_2) = 0.}
+\end{equation*}
+If $m_a = m_b$ and the spins are different, then, using eq. \ref{eq:numbs} we will have
+\begin{equation*}
+  \hlgreen{\Psi(\vec{r}_1,\vec{r}_2) = \frac{1}{\sqrt{2}} \psi_{m_a}(\vec{r}_1)\psi_{m_a}(\vec{r}_2)(\chi_1(\uparrow)\chi_2(\downarrow) - \chi_2(\uparrow)\chi_1(\downarrow)).}
+\end{equation*}
+This state is \textit{orbital symmetric, and spin-asymmetric}, as we can see, if we change the spin directions of the particles then the resulting wavefunction will change signs.
+
+If the orbital quantum numbers are different then, we have two cases for the spins, when the spins are aligned and when they point in different directions. Let's take the case when they are aligned first, using eq. \ref{slat:det}
+\begin{equation*}
+  \phi_{m_a}(\vec{r}_1,\sigma_1)\phi_{m_b}(\vec{r}_2,\sigma_1) - \phi_{m_a}(\vec{r}_2,\sigma_1)\phi_{m_b}(\vec{r}_1,\sigma_1).
+\end{equation*}
+Again, decoupling terms we'll have
+\begin{equation}
+  \begin{aligned}
+    (\psi_{m_a}(\vec{r}_1)\psi_{m_b}(\vec{r}_2) - \psi_{m_a}(\vec{r}_2)\psi_{m_b}(\vec{r}_1))\chi_1(\sigma_1)\chi_2(\sigma_1),
+  \end{aligned}
+\end{equation}
+So we have, two possible wavefunctions
+\begin{eqnarray}
+  \hlgreen{\Psi(\vec{r}_1,\vec{r}_2) = \frac{1}{\sqrt{2}} (\psi_{m_a}(\vec{r}_1)\psi_{m_b}(\vec{r}_2) - \psi_{m_a}(\vec{r}_2)\psi_{m_b}(\vec{r}_1))\chi_1(\uparrow)\chi_2(\uparrow)}\\
+  \hlgreen{\Psi(\vec{r}_1,\vec{r}_2) = \frac{1}{\sqrt{2}} (\psi_{m_a}(\vec{r}_1)\psi_{m_b}(\vec{r}_2) - \psi_{m_a}(\vec{r}_2)\psi_{m_b}(\vec{r}_1))\chi_1(\downarrow)\chi_2(\downarrow)}
+\end{eqnarray}
+Both of them are \textit{symmetric in spin, and antisymmetric in orbital}, i.e. if we exchange the spin of particle 1 and particle 2 the wavefunction keeps the same sign, but if we exchange the orbital quantum numbers a $-1$ sign will appear.
+
+Now the only remaining case is when the spins point in opposite directions, for this case the slater determinant will yield
+\begin{equation*}
+  \phi_{m_a}(\vec{r}_1,\sigma_1)\phi_{m_b}(\vec{r}_2,-\sigma_1) - \phi_{m_a}(\vec{r}_2,\sigma_1)\phi_{m_b}(\vec{r}_1,-\sigma_1).
+\end{equation*}
+Here decoupling will not help us to spot symmetries, since \textit{the result has neither spin nor angular symmetry}. So we will only write the resulting functions
+\begin{eqnarray}
+  \hlgreen{\Psi(\vec{r}_1,\vec{r}_2) = \frac{1}{\sqrt{2}} (\phi_{m_a}(\vec{r}_1,\downarrow)\phi_{m_b}(\vec{r}_2,\uparrow) - \phi_{m_a}(\vec{r}_2,\downarrow)\phi_{m_b}(\vec{r}_1,\uparrow)). }\\
+  \hlgreen{\Psi(\vec{r}_1,\vec{r}_2) = \frac{1}{\sqrt{2}} (\phi_{m_a}(\vec{r}_1,\uparrow)\phi_{m_b}(\vec{r}_2,\downarrow) - \phi_{m_a}(\vec{r}_2,\uparrow)\phi_{m_b}(\vec{r}_1,\downarrow)). }
+\end{eqnarray}
+\end{solution}
+
+\question{3 electrons}
+\begin{solution}
+Now is the turn for a slater determinant of 3 electrons, with orbital quantum numbers ($m_a = m_b \neq m_c$). Let's remember that because of Pauli's principle the electrons that share the orbital quantum numbers need to have a different spin, to give a non-zero wavefunction. So the Slater determinant will look like
+\begin{equation*}
+    \begin{vmatrix}
+       \phi_{m_a}(\vec{r}_1,\sigma_1) & \phi_{m_a}(\vec{r}_2,\sigma_1) & \phi_{m_a}(\vec{r}_3,\sigma_1)\\
+       \phi_{m_a}(\vec{r}_1,-\sigma_1) & \phi_{m_a}(\vec{r}_2,-\sigma_1) &  \phi_{m_a}(\vec{r}_3,-\sigma_1)\\
+       \phi_{m_c}(\vec{r}_1,\sigma_3) & \phi_{m_c}(\vec{r}_2,\sigma_3) &  \phi_{m_c}(\vec{r}_3,\sigma_3)
+    \end{vmatrix} =
+\end{equation*}
+\begin{equation*}
+  \begin{aligned}
+    =\quad &\phi_{m_a}(\vec{r}_1,\sigma_1)\phi_{m_a}(\vec{r}_2,-\sigma_1)\phi_{m_c}(\vec{r}_3,\sigma_3) \\  + & \phi_{m_a}(\vec{r}_2,\sigma_1)\phi_{m_a}(\vec{r}_3,-\sigma_1)\phi_{m_c}(\vec{r}_1,\sigma_3) \\
+    + & \phi_{m_a}(\vec{r}_3,\sigma_1)\phi_{m_a}(\vec{r}_1,-\sigma_1)\phi_{m_c}(\vec{r}_2,\sigma_3)\\
+    - & \phi_{m_c}(\vec{r}_1,\sigma_3)\phi_{m_a}(\vec{r}_2,-\sigma_1)\phi_{m_a}(\vec{r}_3,\sigma_1) \\
+    - & \phi_{m_c}(\vec{r}_2,\sigma_3)\phi_{m_a}(\vec{r}_3,-\sigma_1)\phi_{m_a}(\vec{r}_1,\sigma_1) \\
+    - &\phi_{m_c}(\vec{r}_3,\sigma_3)\phi_{m_a}(\vec{r}_1,-\sigma_1)\phi_{m_a}(\vec{r}_2,\sigma_1)
+  \end{aligned}
+\end{equation*}
+There are different ways to factorize terms on this product and make it more readable, here we show one that might be useful to spot symmetries
+\begin{equation*}
+  \begin{aligned}
+    =\quad &\phi_{m_c}(\vec{r}_3,\sigma_3)(\phi_{m_a}(\vec{r}_1,\sigma_1)(\phi_{m_a}(\vec{r}_2,-\sigma_1) - \phi_{m_a}(\vec{r}_1,-\sigma_1)\phi_{m_a}(\vec{r}_2,\sigma_1)) \\  + & \phi_{m_c}(\vec{r}_1,\sigma_3)(\phi_{m_a}(\vec{r}_2,\sigma_1)\phi_{m_a}(\vec{r}_3,-\sigma_1) - \phi_{m_a}(\vec{r}_2,-\sigma_1)\phi_{m_a}(\vec{r}_3,\sigma_1))\\
+    + & \phi_{m_c}(\vec{r}_2,\sigma_3)( \phi_{m_a}(\vec{r}_3,\sigma_1)\phi_{m_a}(\vec{r}_1,-\sigma_1) - \phi_{m_a}(\vec{r}_3,-\sigma_1)\phi_{m_a}(\vec{r}_1,\sigma_1) )
+  \end{aligned}
+\end{equation*}
+Here is actually useful to decouple the terms again
+\begin{equation}
+  \begin{aligned}
+    =\quad &\hlgreen{\psi_{m_c}(\vec{r}_3)\chi_3(\sigma_3)\psi_{m_a}(\vec{r}_1)\psi_{m_a}(\vec{r}_2)(\chi_1(\sigma_1)\chi_2(-\sigma_1) - \chi_1(-\sigma_1)\chi_2(\sigma_1))} \\  \hlgreen{+}
+    & \hlgreen{\psi_{m_c}(\vec{r}_1)\chi_1(\sigma_3)\psi_{m_a}(\vec{r}_2)\psi_{m_a}(\vec{r}_3)(\chi_2(\sigma_1)\chi_3(-\sigma_1) - \chi_2(-\sigma_1)\chi_3(\sigma_1))}\\
+    \hlgreen{+} & \hlgreen{\psi_{m_c}(\vec{r}_2)\chi_2(\sigma_3)\psi_{m_a}(\vec{r}_3)\psi_{m_a}(\vec{r}_1)( \chi_3(\sigma_1)\chi_1(-\sigma_1) - \chi_3(-\sigma_1)\chi_1(\sigma_1) ).}
+  \end{aligned}
+\end{equation}
+Of course we are missing the normalization value, but that one must be $1\sqrt{6}$ since there are 6 terms of equal probability. We can also see that on this case the resulting function will be \textit{orbitally symmetric, and spin-antisymmetric for changes of spin of the particles with the same orbital numbers.}
+\end{solution}
+\end{questions}
