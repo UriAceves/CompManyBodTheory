@@ -1,0 +1,130 @@
+\begin{questions}
+\question{
+Show that those operators are fermionic
+}
+\begin{solution}
+  By definition, fermion operators must satisfy the following anti-commutation rules
+  \begin{itemize}
+    \item $\{a_{\alpha,\sigma},a_{\alpha',\sigma'}\} = 0.$
+    \item $\{a^\dagger_{\alpha,\sigma},a^\dagger_{\alpha',\sigma'}\} = 0.$
+    \item $\{a_{\alpha,\sigma},a^\dagger_{\alpha',\sigma'}\} = \delta_{\alpha, \alpha'}\delta_{\sigma,\sigma'}.$
+  \end{itemize}
+  Now we are going to prove that if $\hat{c}_{m,\zeta}$ is a fermion operator then the linear combinations
+  \begin{eqnarray}
+    \hat{d}_\mu = \sum_m \alpha_m\hat{c}_{m,\mu},\\
+    \hat{d}^\dagger_\mu = \sum_m \alpha^*_m\hat{c}^\dagger_{m,\mu},
+  \end{eqnarray}
+  are fermion operators too.
+
+  So we are going to prove they obey the previously mentioned anti-commutation rules. We will use the linearity property of the anti-commutator shown in eq. \ref{linear}
+
+  \begin{equation}
+    \{\alpha A + \beta B, \gamma C + \delta D\} =   \{\alpha A, \gamma C\} +  \{\alpha A ,\delta D\} +   \{ \beta B, \gamma C \} +   \{ \beta B, \delta D\}.
+    \label{linear}
+  \end{equation}
+  Let's go then,
+  \begin{equation}
+    \begin{aligned}[b]
+      \{\hat{d}_\mu, \hat{d}_\nu\} &= \left\{\sum_m \alpha_m\hat{c}_{m,\mu}, \sum_n \alpha_n\hat{c}_{n,\nu}\right\},\\
+      &= \sum_{m,n} \alpha_m \alpha_n \cancelto{0}{\{\hat{c}_{m,\mu},\hat{c}_{n,\nu}\}},\\
+      &= 0.
+    \end{aligned}
+  \end{equation}
+  \begin{equation}
+    \begin{aligned}[b]
+      \{\hat{d}^\dagger_\mu, \hat{d}^\dagger_\nu\} &= \left\{\sum_m \alpha_m^*\hat{c}^\dagger_{m,\mu}, \sum_n \alpha_n^*\hat{c}^\dagger_{n,\nu}\right\},\\
+      &= \sum_{m,n} \alpha_m^* \alpha_n^* \cancelto{0}{\{\hat{c}^\dagger_{m,\mu},\hat{c}^\dagger_{n,\nu}\}},\\
+      &= 0.
+    \end{aligned}
+  \end{equation}
+  \begin{equation}
+    \begin{aligned}[b]
+      \{\hat{d}_\mu, \hat{d}^\dagger_\nu\} &= \left\{\sum_m \alpha_m\hat{c}_{m,\mu}, \sum_n \alpha_n^*\hat{c}^\dagger_{n,\nu}\right\},\\
+      &= \sum_{m,n} \alpha_m \alpha_n^* \cancelto{\delta_{m,n}\delta_{\mu,\nu}}{\{\hat{c}_{m,\mu},\hat{c}^\dagger_{n,\nu}\}},\\
+      &= \sum_{m,n} \alpha_m \alpha_n^*\delta_{m,n}\delta_{\mu,\nu},\\
+      &= \cancelto{1}{\sum_{m} \alpha_m \alpha_m^*}\delta_{\mu,\nu},\\
+      &= \delta_{\mu,\nu}.
+    \end{aligned}
+  \end{equation}
+  Where we used the fact that $\hat{c}$ are fermion operators, and in the last one we used additionally $\sum_m \alpha_m^2 = 1$. Since the $\hat{d}$ operators comply with the anti-commutation rules for fermion operators we conclude that they are indeed fermion operators. $\blacksquare$
+\end{solution}
+
+\question{Majorana operators}
+\begin{solution}
+  Now we are going to prove basically the same but for the next operators (I changed the labels to make the life easier for me)
+  \begin{eqnarray}
+    \hat{\gamma}_+ = \frac{1}{\sqrt{2}}\left(\hat{d} + \hat{d}^\dagger \right)\\
+    \hat{\gamma}_- = \frac{i}{\sqrt{2}}\left(\hat{d} - \hat{d}^\dagger \right)
+  \end{eqnarray}
+
+  \begin{equation}
+    \begin{aligned}[b]
+      \{\hat{\gamma}_\pm,\hat{\gamma}_\pm \} &= \left\{\frac{\alpha_\pm}{\sqrt{2}}\left(\hat{d} \pm \hat{d}^\dagger \right),\frac{\alpha_\pm}{\sqrt{2}}\left(\hat{d} \pm \hat{d}^\dagger \right)\right\},\\
+      &= \frac{\cancelto{\pm 1}{\alpha^2_\pm}}{2}\left\{\hat{d} \pm \hat{d}^\dagger ,\hat{d} \pm \hat{d}^\dagger \right\},\\
+      &= \frac{\pm 1}{2}\left(\cancelto{0}{\left\{\hat{d} ,\hat{d} \right\}}  \pm \cancelto{1}{\left\{\hat{d}, \hat{d}^\dagger \right\}} \pm \cancelto{1}{\left\{  \hat{d}^\dagger ,\hat{d}\right\}} + \cancelto{0}{\left\{\hat{d}^\dagger ,\hat{d}^\dagger \right\}}\right),\\
+      &= 1.
+    \end{aligned}
+  \end{equation}
+  Where $\alpha_+ = 1$, and $\alpha_- = i$.
+  \begin{equation}
+    \begin{aligned}[b]
+      \{\hat{\gamma}_\pm,\hat{\gamma}_\mp \} &= \left\{\frac{\alpha_\pm}{\sqrt{2}}\left(\hat{d} \pm \hat{d}^\dagger \right),\frac{\alpha_\mp}{\sqrt{2}}\left(\hat{d} \mp \hat{d}^\dagger \right)\right\},\\
+      &= \frac{\cancelto{i}{\alpha^2_\pm}}{2}\left\{\hat{d} \pm \hat{d}^\dagger ,\hat{d} \mp \hat{d}^\dagger \right\},\\
+      &= \frac{i}{2}\left(\cancelto{0}{\left\{\hat{d} ,\hat{d} \right\}}  \pm \cancelto{1}{\left\{\hat{d}, \hat{d}^\dagger \right\}} \mp \cancelto{1}{\left\{  \hat{d}^\dagger ,\hat{d}\right\}} + \cancelto{0}{\left\{\hat{d}^\dagger ,\hat{d}^\dagger \right\}}\right),\\
+      &= 0.
+    \end{aligned}
+  \end{equation}
+  As a conclusion we see that
+  \begin{equation}
+    \{\hat{\gamma}_\mu , \hat{\gamma}_\nu\} = \delta_{\mu \nu}.
+    \label{commu}
+  \end{equation}
+
+  Finally we need to express the number operator in terms of $\hat{\gamma}_+$ and $\hat{\gamma}_-$. The trick we are going to use here is an old known if we have solved the harmonic oscillator with creation and annihilation operators. We can easily show that
+  \begin{eqnarray}
+    \hat{d}^\dagger = \frac{\hat{\gamma}_+ + i\hat{\gamma}_-}{\sqrt{2}},\\
+    \hat{d} = \frac{\hat{\gamma}_+ - i\hat{\gamma}_-}{\sqrt{2}},
+  \end{eqnarray}
+  therefore
+  \begin{equation}
+    \begin{aligned}[b]
+      \hat{n} &= \hat{d}^\dagger \hat{d},\\
+      &= \left(\frac{\hat{\gamma}_+ + i\hat{\gamma}_-}{\sqrt{2}}\right)\left(\frac{\hat{\gamma}_+ - i\hat{\gamma}_-}{\sqrt{2}}\right),\\
+      &= \frac{(\hat{\gamma}_+ + i\hat{\gamma}_-)(\hat{\gamma}_+ - i\hat{\gamma}_-)}{2},\\
+      &= \frac{\hat{\gamma}_+\hat{\gamma}_+ - i\hat{\gamma}_+\hat{\gamma}_- + i\hat{\gamma}_- \hat{\gamma}_+ + \hat{\gamma}_-\hat{\gamma}_-}{2}
+      \label{n:almost}
+    \end{aligned}
+  \end{equation}
+  If we use what we know from eq. \ref{commu} we will notice that
+  \begin{equation}
+    \begin{aligned}[b]
+      \{\hat{\gamma}_\pm,\hat{\gamma}_\mp \} = \hat{\gamma}_\pm\hat{\gamma}_\mp+ \hat{\gamma}_\mp\hat{\gamma}_\pm = 0,\\
+      \Rightarrow \hat{\gamma}_\pm\hat{\gamma}_\mp = - \hat{\gamma}_\mp\hat{\gamma}_\pm,
+      \label{help1}
+    \end{aligned}
+  \end{equation}
+  and also
+  \begin{equation}
+    \begin{aligned}[b]
+      \{\hat{\gamma}_\pm,\hat{\gamma}_\pm \} = \hat{\gamma}_\pm\hat{\gamma}_\pm+ \hat{\gamma}_\pm\hat{\gamma}_\pm = 2 \hat{\gamma}_\pm\hat{\gamma}_\pm = 1,\\
+      \Rightarrow \hat{\gamma}_\pm\hat{\gamma}_\pm = \frac{1}{2}.
+      \label{help2}
+    \end{aligned}
+  \end{equation}
+  Using eqs. \ref{help1}-\ref{help2} in eq. \ref{n:almost} we will have
+  \begin{equation}
+    \begin{aligned}[b]
+      \hat{n} &= \frac{\hat{\gamma}_+\hat{\gamma}_+ - i\hat{\gamma}_+\hat{\gamma}_- + i\hat{\gamma}_- \hat{\gamma}_+ + \hat{\gamma}_-\hat{\gamma}_-}{2}\\
+      &=\frac{1/2 + 2i\hat{\gamma}_- \hat{\gamma}_+ + 1/2}{2}\\
+      &=\frac{1}{2} + i\hat{\gamma}_- \hat{\gamma}_+.
+      \label{n:almost}
+    \end{aligned}
+  \end{equation}
+\end{solution}
+\end{questions}
+
+
+% \includegraphics[width=75mm]{}
+%
+%
+%  \captionof{figure}{}\label{}\vspace{0.5cm}
