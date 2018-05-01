@@ -1,0 +1,39 @@
+\begin{questions}
+\question{
+Spin
+}
+\begin{solution}
+ The first step we need to take is expanding the field operators on the given basis
+ \begin{eqnarray}
+   \Phi_{\sigma}(\vec{r}) = \sum_{k} \psi_{k}(\vec{r})c_{k,\sigma},\label{field:1}\\
+   \Phi_{\sigma}(\vec{r}) = \sum_{n,l,m} \psi_{n,l,m}(\vec{r})c_{n,l,m,\sigma}\label{field:2}
+ \end{eqnarray}
+ And their respective dagger operators. From Fetter and Walecka we know how to obtain the second-quantized operator from the first-quantization operator.
+ \begin{equation}
+   \hat{s_i} = \sum_{\sigma,\sigma'} \Phi_\sigma^\dagger(\vec{r})s_i\Phi_{\sigma'}(\vec{r}),\label{dens}
+ \end{equation}
+ inserting eq. \ref{field:1} into eq. \ref{dens}, and pulling up the spin index explicitly, yields
+ \begin{equation*}
+   \begin{aligned}[b]
+     \hat{s_i} &= \sum_{k,k',\sigma, \sigma'} \bra{\psi_{k}}\bra{\sigma} s_i  \ket{\sigma'}\ket{\psi_{k'}}c^\dagger_{k,\sigma}c_{k',\sigma'},\\
+     &= \sum_{k,k',\sigma, \sigma'} \braket{\psi_{k}|\psi_{k'}}\bra{\sigma} s_i  \ket{\sigma'}c^\dagger_{k,\sigma}c_{k',\sigma'}
+   \end{aligned}
+ \end{equation*}
+ \begin{equation}
+   \begin{aligned}[b]
+     &= \sum_{k,k',\sigma, \sigma'} \delta_k^{k'}\bra{\sigma} s_i  \ket{\sigma'}c^\dagger_{k,\sigma}c_{k',\sigma'}\\
+     &= \hlgreen{\sum_{k,\sigma, \sigma'}\bra{\sigma} s_i  \ket{\sigma'}c^\dagger_{k,\sigma}c_{k',\sigma'}}.
+   \end{aligned}
+ \end{equation}
+ We can use the same trick, but now plugging eq. \ref{field:2} into eq. \ref{dens}
+ \begin{equation}
+   \begin{aligned}[b]
+     \hat{s_i} &= \sum \bra{\psi_{n,l,m}}\bra{\sigma} s_i  \ket{\sigma'}\ket{\psi_{n',l',m'}}c^\dagger_{n,l,m,\sigma}c_{n',l',m',\sigma'},\\
+     &= \sum \braket{\psi_{n,l,m}|\psi_{n',l',m'}}\bra{\sigma} s_i  \ket{\sigma'}c^\dagger_{n,l,m,\sigma}c_{n',l',m',\sigma'},\\
+     &= \sum \delta_{nlm}^{n'l'm'}\bra{\sigma} s_i  \ket{\sigma'}c^\dagger_{n,l,m,\sigma}c_{n',l',m',\sigma'},\\
+     &= \hlgreen{\sum_{nlm\sigma\sigma'} \bra{\sigma} s_i  \ket{\sigma'}c^\dagger_{n,l,m,\sigma}c_{n,l,m,\sigma'}.}
+   \end{aligned}
+ \end{equation}
+ Where the first three sums were performed over $n,l,m,\sigma,n',l',m',\sigma'$. The highlighted equations are indeed the total spin operators for the two chosen basis.
+\end{solution}
+\end{questions}
