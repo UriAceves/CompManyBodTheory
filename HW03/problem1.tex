@@ -1,0 +1,96 @@
+\begin{questions}
+\question{
+Intersection of two spheres
+}
+\begin{solution}
+  First I'm going to argue that
+  \begin{equation*}
+    \Theta(k_F - |\bm{P} +\frac{1}{2}\bm{q}|),
+  \end{equation*}
+  is a sphere centered on $-\bm{q}/2$ with radius $k_F$. Let's analyze this, the Heaviside function is going to be zero whenever
+  \begin{equation*}
+    \begin{aligned}[b]
+      &k_F - |\bm{P} +\frac{1}{2}\bm{q}| < 0,\\
+      &k_F  < |\bm{P} +\frac{1}{2}\bm{q}|.
+    \end{aligned}
+  \end{equation*}
+In other words, it will be 1 if the next condition is fulfilled
+\begin{equation*}
+  \begin{aligned}[b]
+    &k_F  > |\bm{P} +\frac{1}{2}\bm{q}|.
+  \end{aligned}
+\end{equation*}
+So, the value will be non-zero just when $|\bm{P} +\frac{1}{2}\bm{q}|$ is less than $k_F$. And by definition this is a ball. Where is the center of this ball? We are tempted to say that in $\bm{q}/2$, since $\bm{P}$ is the variable changing, and we are measuring the distance from $\bm{P}$ to $\bm{q}/2$. But let's remember that the distance between two vectors is $|\bm{a} - \bm{b}|$, not $|\bm{a} + \bm{b}|$. So $|\bm{P} +\frac{1}{2}\bm{q}|$ is the distance between $\bm{P}$ and $-\bm{q}/2$. Hence the center of the sphere is naturally at $-\bm{q}/2$.
+
+The same arguments can be used to show that
+\begin{equation*}
+  \Theta(k_F - |\bm{P} -\frac{1}{2}\bm{q}|),
+\end{equation*}
+is a sphere of radius $k_F$ centered at $\bm{q}/2$. As a consequence of this we can easily notice that the integral
+\begin{equation}
+  \int d\bm{P}\Theta(k_F - |\bm{P} +\frac{1}{2}\bm{q}|)\Theta(k_F - |\bm{P} -\frac{1}{2}\bm{q}|),
+\end{equation}
+is the volume of the intersection of the two spheres. The volume is then (taken from \url{http://mathworld.wolfram.com/Sphere-SphereIntersection.html})
+\begin{equation*}
+  \begin{aligned}[b]
+  \int d\bm{P}\Theta(k_F - |\bm{P} +\frac{1}{2}\bm{q}|)\Theta(k_F - |\bm{P} -\frac{1}{2}\bm{q}|) &= \frac{\pi}{12}(4k_F +q)(2k_F-q)^2, \\
+  &= \frac{\pi}{12}(16k_F^3 - 12k_F^2q+q^3),\\
+  &= \frac{16\pi}{12}(k_F^3 - \frac{12}{16}k_F^2q+\frac{q^3}{16}),\\
+  &= \frac{16\pi}{12}k_F^3(1 - \frac{12}{16k_F}q+\frac{q^3}{16k_F^3}),\\
+  &= \frac{16\pi}{12}k_F^3(1 - \frac{3x}{2}+\frac{x^3}{2}),
+\end{aligned}
+\end{equation*}
+And this is almost true, except that this is true only when they intersect. The spheres will intersect when the distance between the two centers is less that $2k_F$, in equations this is
+\begin{equation*}
+  q < 2k_F,
+\end{equation*}
+or equivalently
+\begin{equation}
+  \frac{q}{2k_F} < 1.
+\end{equation}
+Then, we need to multiply the volume by a function that is zero when $\frac{q}{2k_F} > 1$ and 1 otherwise (remember that $q$ and $k_F$ are positive numbers). Fortunately we know such function, it will be $\Theta(1-x)$, with $x=q/2k_F$. Finally we can multiply for that function and get
+\begin{equation}
+  \begin{aligned}[b]
+  \int d\bm{P}\Theta(k_F - |\bm{P} +\frac{1}{2}\bm{q}|)\Theta(k_F - |\bm{P} -\frac{1}{2}\bm{q}|)   &= \frac{4\pi}{3}k_F^3(1 - \frac{3x}{2}+\frac{x^3}{2})\Theta(1-x). \quad_\blacksquare
+\end{aligned}
+\label{sp:inter}
+\end{equation}
+Finally we can move to the last integral, but first let's do this, if $x = q/2k_F$ then
+\begin{equation}
+  q = 2xk_F,
+  \label{var:1}
+\end{equation}
+and also
+\begin{equation}
+  \begin{aligned}[b]
+    \frac{dx}{dq} &= \frac{1}{2k_F},\\
+    \Rightarrow dq &= 2k_Fdx.
+  \end{aligned}
+  \label{var:2}
+\end{equation}
+Now, the integral we need to calculate is
+\begin{equation*}
+  \frac{1}{(2\pi)^6}\int d\bm{q}\frac{4\pi}{q^2}\int d\bm{P}\Theta(k_F - |\bm{P} +\frac{1}{2}\bm{q}|)\Theta(k_F - |\bm{P} -\frac{1}{2}\bm{q}|).
+\end{equation*}
+using eqs. \ref{var:1}-\ref{var:2}, and integrating in spherical coordinates we have
+\begin{equation*}
+  \begin{aligned}[b]
+  &\frac{1}{(2\pi)^6}\int d\bm{q}\frac{4\pi}{q^2}\left(\frac{4\pi}{3}k_F^3(1 - \frac{3x}{2}+\frac{x^3}{2})\Theta(1-x)\right),\\
+  =& \frac{(4\pi)^2}{3(2\pi)^6}\int d\bm{q}\frac{1}{q^2}\left(k_F^3(1 - \frac{3x}{4}+\frac{x^3}{2})\Theta(1-x)\right),\\
+  =& \frac{(4\pi)^2}{3(2\pi)^6}\int d\theta \sin(\phi)d\phi dq q^2\frac{1}{q^2}\left(k_F^3(1 - \frac{3x}{2}+\frac{x^3}{2})\Theta(1-x)\right), \\
+  =& \frac{(4\pi)^2}{3(2\pi)^6}\int d\theta \sin(\phi)d\phi 2k_Fdx \left(k_F^3(1 - \frac{3x}{4}+\frac{x^3}{2})\Theta(1-x)\right),\\
+  =& \frac{(4\pi)^2}{(2\pi)^6}\frac{2k_F}{3}\cancelto{2\pi}{\int_0^{2\pi} d\theta} \cancelto{2}{\int_0^\pi \sin(\phi)d\phi} \int dx \left(k_F^3(1 - \frac{3x}{2}+\frac{x^3}{2})\Theta(1-x)\right),\\
+  =& \frac{(4\pi)^3}{(2\pi)^6}\frac{2k_F^4}{3} \int dx \left((1 - \frac{3x}{2}+\frac{x^3}{2})\Theta(1-x)\right),\\
+  =& \frac{(4\pi)^3}{(2\pi)^6}\frac{2k_F^4}{3} \int_0^1 dx \left((1 - \frac{3x}{2}+\frac{x^3}{2})\right),\\
+  =& \frac{(4\pi)^3}{(2\pi)^6}\frac{2k_F^4}{3}  \left.\left((x - \frac{3x^2}{4}+\frac{x^4}{8})\right)\right|_0^1,\\
+  =& \frac{(4\pi)^3}{(2\pi)^6}\frac{2k_F^4}{3}  \left.\left((1 - \frac{3}{4}+\frac{1}{8})\right)\right. = \frac{(4\pi)^3}{(2\pi)^6}\frac{2k_F^4}{3} \frac{3}{8} = \frac{4^3\pi^3}{4^3\pi^6}\frac{2k_F^4}{8} =  \hlgreen{\frac{k_F^4}{4\pi^3}.}
+\end{aligned}
+\end{equation*}
+\end{solution}
+\end{questions}
+
+
+% \includegraphics[width=75mm]{}
+%
+%
+%  \captionof{figure}{}\label{}\vspace{0.5cm}
