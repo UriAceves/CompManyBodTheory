@@ -26,15 +26,15 @@ DOS in 1D
   \end{equation}
    therefore
   \begin{equation}
-    \frac{d\epsilon}{dk} = 2k,  \Rightarrow dk = \frac{d\epsilon}{2k},
+    \frac{d\epsilon}{dk} = k,  \Rightarrow dk = \frac{d\epsilon}{k},
     \label{var:change}
   \end{equation}
 plugging this on eq. \ref{hold} we will have
 \begin{equation}
   \begin{aligned}[b]
-    \rho_{1D}(\epsilon) &= \frac{1}{\pi} \int \frac{d\epsilon}{2k(\epsilon)}\delta(\epsilon - \varepsilon),\\
-    &= \frac{1}{2\pi k(\varepsilon)},\\
-    &= \hlgreen{\frac{1}{2\pi \sqrt{2\varepsilon}},} \quad \text{using eq. \ref{en:k}}
+    \rho_{1D}(\epsilon) &= \frac{1}{\pi} \int \frac{d\epsilon}{k(\epsilon)}\delta(\epsilon - \varepsilon),\\
+    &= \frac{1}{\pi k(\varepsilon)},\\
+    &= \hlgreen{\frac{1}{\pi \sqrt{2\varepsilon}},} \quad \text{using eq. \ref{en:k}}
   \end{aligned}
 \end{equation}
 \end{solution}
@@ -51,9 +51,9 @@ Now $d\bm{k}$ is a vector quantity, let's use spherical coordinates for this and
        &= \frac{2}{(2\pi)^2} \int  \delta(\epsilon(k) - \varepsilon)kdk \int_0^{2\pi}d\theta,\\
        &= \frac{2(2\pi)}{(2\pi)^2} \int  \delta(\epsilon(k) - \varepsilon)kdk,\\
        &= \frac{1}{\pi} \int  \delta(\epsilon(k) - \varepsilon)kdk,\\
-       &= \frac{1}{\pi} \int  \delta(\epsilon(k) - \varepsilon)k\frac{d\epsilon}{2k}, \quad \text{using eq \ref{var:change},}\\
-       &= \frac{1}{2\pi} \int  \delta(\epsilon - \varepsilon)d\epsilon,\\
-       &= \hlgreen{\frac{1}{2\pi}.}
+       &= \frac{1}{\pi} \int  \delta(\epsilon(k) - \varepsilon)k\frac{d\epsilon}{k}, \quad \text{using eq \ref{var:change},}\\
+       &= \frac{1}{\pi} \int  \delta(\epsilon - \varepsilon)d\epsilon,\\
+       &= \hlgreen{\frac{1}{\pi}.}
   \end{aligned}
 \end{equation}
 \end{solution}
@@ -69,10 +69,11 @@ Now $d\bm{k}$ is a vector quantity, let's use spherical coordinates for this and
       \rho(\epsilon) &= \frac{2}{(2\pi)^3}\int \delta(\epsilon(k) - \varepsilon)k^2\sin\theta dkd\phi d\phi,\\
       &=  \frac{2}{(2\pi)^3}\int \delta(\epsilon(k) - \varepsilon)k^2 dk\cancelto{2\pi}{\int_0^{2\pi} d\theta} \cancelto{2}{\int_{0}^\pi\sin\phi d\phi},\\
       &=  \frac{4(2\pi)}{(2\pi)^3}\int \delta(\epsilon(k) - \varepsilon)k^2 dk,\\
-      &=  \frac{4}{(2\pi)^2}\int \delta(\epsilon - \varepsilon)k^2(\epsilon) \frac{d\epsilon}{2k}, \quad \text{using eq. \ref{var:change}},\\
-      &=  \frac{2}{(2\pi)^2}\int \delta(\epsilon - \varepsilon)k(\epsilon) d\epsilon,\\
-      &=  \frac{2}{(2\pi)^2} k(\varepsilon) = \hlgreen{\frac{2}{(2\pi)^2} \sqrt{2\epsilon}.}\\
+      &=  \frac{4}{(2\pi)^2}\int \delta(\epsilon - \varepsilon)k^2(\epsilon) \frac{d\epsilon}{k}, \quad \text{using eq. \ref{var:change}},\\
+      &=  \frac{4}{(2\pi)^2}\int \delta(\epsilon - \varepsilon)k(\epsilon) d\epsilon,\\
+      &=  \frac{4}{(2\pi)^2} k(\varepsilon) = \hlgreen{\frac{4}{(2\pi)^2} \sqrt{2\varepsilon}.}\\
     \end{aligned}
   \end{equation}
+  \textbf{Let's remember that for all these cases we take only $\varepsilon > 0$.}
 \end{solution}
 \end{questions}
