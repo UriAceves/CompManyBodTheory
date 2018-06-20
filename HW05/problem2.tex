@@ -1,0 +1,55 @@
+\begin{questions}
+\question{
+Exact solution
+}
+\begin{solution}
+The hamiltonian looks like this
+\begin{equation}
+  \begin{aligned}[b]
+    H_U &= \Delta E \hat{n}_2 + U \hat{n}_{1\uparrow} \hat{n}_{1\downarrow} + U \hat{n}_{2\uparrow} \hat{n}_{2\downarrow} + (U-2J)\hat{n}_{1\uparrow} \hat{n}_{2\downarrow} \\
+    &+ (U-2J)\hat{n}_{1\downarrow} \hat{n}_{2\uparrow}
+  + (U-3J)\hat{n}_{1\uparrow} \hat{n}_{2\uparrow} + (U-3J)\hat{n}_{1\downarrow} \hat{n}_{2\downarrow} .
+\end{aligned}
+\end{equation}
+The states that are going to yield a non-zero energy are $\ket{\uparrow,\downarrow}, \ket{\downarrow, \uparrow},$ $ \ket{\downarrow  \uparrow , 0} , \ket{0,\downarrow \uparrow}, \ket{\uparrow, \uparrow}, \ket{\downarrow, \downarrow} ,$ $ \ket{0,\downarrow}, \ket{0, \uparrow}$. Using the basis with this specific order we see
+\begin{eqnarray}
+  H_U \ket{\uparrow,\downarrow} = \Delta E + U- 2J,\\
+  H_U \ket{\downarrow, \uparrow} =  \Delta E + U -2J,\\
+  H_U \ket{\downarrow  \uparrow , 0} = U, \\
+  H_U \ket{0,\downarrow \uparrow} = \Delta E + U,\\
+  H_U \ket{\uparrow, \uparrow} = \Delta E+ U - 3J, \\
+  H_U \ket{\downarrow, \downarrow} = \Delta E+ U - 3J,\\
+  H_U \ket{0,\downarrow} = \Delta E,\\
+  H_U \ket{0, \uparrow} = \Delta E.
+\end{eqnarray}
+
+So our matrix $H_U$ looks like
+\begin{equation}
+  \begin{pmatrix}
+    \Delta E + U- 2J & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0& \Delta E + U- 2J & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & U & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & \Delta E + U & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & \Delta E+ U - 3J & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0&0 & \Delta E+ U - 3J & 0 & 0 \\
+    0 & 0 & 0 & 0&0 & 0 & \Delta E & 0 \\
+    0 & 0 & 0 & 0&0 & 0 & 0 & \Delta E\\
+  \end{pmatrix}
+\end{equation}
+If we remember that the Hubbard model has the following form
+\begin{equation}
+  \begin{aligned}[b]
+    H &= H_d + H_T + H_U \\
+    & = \varepsilon \sum_i \sum_\sigma c_{i\sigma}^\dagger c_{i\sigma} - t \sum_{\langle ii'\rangle } \sum_\sigma c_{i\sigma}^\dagger c_{i'\sigma} + H_U
+  \end{aligned}
+\end{equation}
+This turns into a complicated matrix. Luckily for us we just need to diagonalize $H_U$ and it's already diagonal. So the eigenstates is the basis we use to get this matrix form of the operator.\\
+
+The ground state depends actually on some quantities, for example it depends on whether $ U - 3J $ is positive or negative. The ground state will be the eigenstate associated with the smaller diagonal terms. But if we suppose $U-3J<0$ then the ones with spins pointing in the same direction (5th and 6th row) $\ket{\uparrow, \uparrow}, \ket{\downarrow, \downarrow}$ have the smallest energies and their energies (coming from $H_U$) are going to be $\Delta E+ U - 3J$. So the ground state is going to be any linear combination of this two states.
+
+If $\Delta E/J \rightarrow 0$ then $J\gg \Delta E$ so we can basically drop the $\Delta E$ term from the energy, for there are no qualitative changes. Maybe we can also ignore the last two terms because their energies are really small compared to the other ones.
+
+If $\Delta E/J \rightarrow \infty$ then $J \ll \Delta E$ so we can drop the J terms and now we have a 5-fold degeneracy in the ground state. Now the states
+$\ket{\uparrow,\downarrow}, \ket{\downarrow, \uparrow},$ $ \ , \ket{0,\downarrow \uparrow}, \ket{\uparrow, \uparrow}, \ket{\downarrow, \downarrow} ,$ have also the energy of the ground state, so any linear combination of this states it is going to be the ground state.
+\end{solution}
+\end{questions}

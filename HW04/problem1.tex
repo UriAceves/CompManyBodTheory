@@ -1,0 +1,157 @@
+\begin{questions}
+\question{Calculate the spectrum
+}
+\begin{solution}
+ We start by substituting
+ \begin{equation}
+   \begin{aligned}[b]
+   H &= H_0 + H_u \\ &= -t\sum_\sigma [c_{1\sigma}^\dagger c_{2\sigma} + c_{2\sigma}^\dagger c_{1\sigma}] + U \hat{n}_{1\uparrow}\langle\hat{n}_{1\downarrow}\rangle + U \hat{n}_{1\downarrow}\langle\hat{n}_{1\uparrow}\rangle - U \langle\hat{n}_{1\downarrow}\rangle \langle\hat{n}_{1\uparrow}\rangle\\
+   &+U \hat{n}_{2\uparrow}\langle\hat{n}_{2\downarrow}\rangle+ U \hat{n}_{2\downarrow}\langle\hat{n}_{2\uparrow}\rangle - U \langle\hat{n}_{2\downarrow}\rangle \langle\hat{n}_{2\uparrow}\rangle.
+ \end{aligned}
+ \end{equation}
+Now if we use the fact that $n_{1\sigma} = n_{2-\sigma}$, and $m=(n_{1\uparrow} - n_{1\downarrow})/2$, $n =n_{1\uparrow} + n_{1\downarrow} $, $H_u$ changes to
+
+ \begin{equation}
+  \begin{aligned}[b]
+    H_u &= U \hat{n}_{1\uparrow}\langle\hat{n}_{2\uparrow}\rangle +
+     U \hat{n}_{1\downarrow}\langle\hat{n}_{2\downarrow}\rangle + U \hat{n}_{2\uparrow}\langle\hat{n}_{1\uparrow}\rangle +
+     U \hat{n}_{2\downarrow}\langle\hat{n}_{1\downarrow}\rangle - 2U
+     \langle\hat{n}_{1 \uparrow}\rangle \langle\hat{n}_{1\downarrow}\rangle\\
+     &= \sum_\sigma U ( \hat{n}_{1\sigma}\langle\hat{n}_{2\sigma}\rangle +
+     \hat{n}_{1\sigma}\langle\hat{n}_{2\sigma}\rangle) - 2U
+      \langle\hat{n}_{1 \uparrow}\rangle \langle\hat{n}_{1\downarrow}\rangle
+  \end{aligned}
+ \end{equation}
+Hence the system to solve is
+\begin{equation}
+  H = \sum_\sigma(c_{1\sigma}^\dagger c_{2\sigma}^\dagger)
+  \begin{pmatrix}
+    U \langle n_{1-\sigma}\rangle & -t\\
+    -t & U \langle n_{1\sigma}\rangle
+  \end{pmatrix}
+  \begin{pmatrix}
+    c_{1\sigma}\\
+    c_{2\sigma}
+  \end{pmatrix}
+  - 2U
+   \langle\hat{n}_{1 \uparrow}\rangle \langle\hat{n}_{1\downarrow}\rangle
+\end{equation}
+To get the energies we require to compute
+\begin{equation}
+  \begin{vmatrix}
+    U \langle n_{1-\sigma}\rangle- \epsilon & -t\\
+    -t & U \langle n_{1\sigma}\rangle- \epsilon
+  \end{vmatrix} = 0,
+\end{equation}
+and solve for $\epsilon_{i\sigma}, i=1,2$ , therefore
+\begin{equation}
+  \begin{aligned}
+   \epsilon_{i\sigma} &= \frac{U}{2}(\langle\hat{n}_{i \sigma}\rangle +  \langle\hat{n}_{i-\sigma}\rangle) \pm \sqrt{\frac{U^2}{4}(\langle\hat{n}_{i \sigma}\rangle +  \langle\hat{n}_{i-\sigma}\rangle)^2  - U^2 \langle\hat{n}_{i \sigma}\rangle \langle\hat{n}_{i-\sigma}\rangle + t^2}\\
+   &= \frac{U}{2}n_i \pm \sqrt{\frac{U^2}{4}(\langle\hat{n}_{i \sigma}\rangle -  \langle\hat{n}_{i-\sigma}\rangle)^2 + t^2}\\
+   &= \frac{U}{2}n_i \pm \sqrt{U^2 m^2 + t^2}.
+ \end{aligned}
+\end{equation}
+If we define
+\begin{equation}
+  \theta = tan^{-1} \left(\frac{-t}{Um} \right),
+\end{equation}
+then we can express the eigenvectors in a much simpler way, as
+\begin{equation}
+  \bm{v}_1 = \begin{pmatrix}
+    \cos \left(\frac{\theta}{2}\right) \\
+    \sin \left(\frac{\theta}{2}\right)
+\end{pmatrix}, \qquad \bm{v}_2 = \begin{pmatrix}
+  \sin \left(\frac{\theta}{2}\right) \\
+  -\cos \left(\frac{\theta}{2}\right)
+\end{pmatrix}.
+\end{equation}
+Now we are in position to obtain our eigenstates, they will be
+\begin{eqnarray}
+  \ket{\psi_{1\sigma}} = \left(\cos \left(\frac{\theta}{2}\right) c_{1\sigma}^\dagger + \sin \left(\frac{\theta}{2}\right) c_{2\sigma}^\dagger\right)\ket{0}, \\
+  \ket{\psi_{2\sigma}} = \left(\sin \left(\frac{\theta}{2}\right) c_{1\sigma}^\dagger - \cos \left(\frac{\theta}{2}\right) c_{2\sigma}^\dagger\right)\ket{0}.
+\end{eqnarray}
+Up to this point we got the single particle states. In order to get the ground state, what we need to do is to fill up the states with lowest energies to get the salter determinant. So let's do that
+\begin{equation}
+  \epsilon_{GS} = \epsilon_{2\uparrow} + \epsilon_{2\downarrow} = Un_2 + 2\sqrt{U^2 m^2 + t^2} - 2 U \langle\hat{n}_{1 \uparrow}\rangle \langle\hat{n}_{1\downarrow}\rangle
+\end{equation}
+So the ground state is
+\begin{equation}
+  \ket{GS} = \ket{\psi_{2\uparrow}}\otimes \ket{\psi_{2\downarrow}} = \sin^2 \left(\frac{\theta}{2}\right) \ket{\uparrow \downarrow, 0 } - \frac{1}{2}\sin \left(\frac{\theta}{2}\right)(\ket{\uparrow, \downarrow} - \ket{\downarrow, \uparrow}) + \cos^2 \left(\frac{\theta}{2}\right)\ket{0,\uparrow \downarrow }
+\end{equation}
+Now we need to solve the original hamiltonian exactly.
+
+\begin{equation}
+  \ket{\uparrow \downarrow, \uparrow \downarrow} = c_{1\uparrow}^\dagger c_{1\downarrow}^\dagger c_{2\uparrow}^\dagger c_{2\downarrow}^\dagger \ket{0}
+\end{equation}
+The energy for $\ket{\uparrow , \uparrow }$ and $\ket{\downarrow,  \downarrow}$ is zero.
+For the remaining ones we need to solve for the next hamiltonian
+\begin{equation}
+  \begin{pmatrix}
+    0 & 0 & -t & -t \\
+    0 & 0 & t & t \\
+    -t & t & U & 0 \\
+    -t & -t & 0 & U
+  \end{pmatrix}
+\end{equation}
+For the solution we can propose a basis of covalent and ionic states
+\begin{eqnarray}
+  \ket{cov_\pm} = \frac{1}{\sqrt{2}} \left(c_{1\uparrow}^\dagger c_{2\downarrow}^\dagger\pm  c_{1\downarrow}^\dagger c_{2\uparrow}^\dagger \right)\ket{0},\\
+  \ket{ion_\pm} = \frac{1}{\sqrt{2}} \left(c_{1\uparrow}^\dagger c_{1\downarrow}^\dagger\pm  c_{2\uparrow}^\dagger c_{2\downarrow}^\dagger \right)\ket{0}.
+\end{eqnarray}
+
+Two of the eigenstates are easy to find.
+The state $\ket{cov_+}$ has energy equal to zero and it corresponds to
+\begin{equation}
+     \ket{cov_+} = 0 \frac{1}{\sqrt{2}}\begin{pmatrix}
+      1 \\
+       1 \\
+        0 \\
+         0
+  \end{pmatrix}.
+\end{equation}
+The state $\ket{ion_-}$ has energy $U$ and it corresponds to
+\begin{equation}
+  \ket{ion_-} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+    0 \\ 0 \\ 1 \\ -1
+\end{pmatrix}.
+\end{equation}
+To solve the remaining two we construct the new matrix in the space spanned by $\ket{cov_-}$,$\ket{ion_+}$
+we get
+\begin{equation}
+  H = \begin{pmatrix}
+    0 & -2t \\
+    -2t & U
+\end{pmatrix}.
+\end{equation}
+We use Mathematica to solve the eigenproblem for the energy and we find
+\begin{equation}
+  \epsilon_{c/i} = \frac{U}{2} \pm \frac{1}{2}\sqrt{U^2 + 16t^2},
+  \label{en}
+\end{equation}
+if we define $\theta = \tan^{-1} \left( \frac{4t}{U}\right)$, we can now write the ground state as
+\begin{equation}
+  \ket{GS} = \cos \frac{\theta}{2} \ket{cov_-} + \sin \frac{\theta}{2} \ket{ion_+}.
+\end{equation}
+We need to express this as a function of m, so let's do it. Using $n_{1\uparrow} = n_1/2 + m$ and $n_{1\downarrow} = n_1/2 - m$ the energy of the ground state is
+\begin{equation}
+  \epsilon_{GS} = Un - 2\sqrt{U^2 m^2 + t^2}- U(n^2/2 - 2m^2).
+\end{equation}
+
+for the following analysis I'm going to be using eq. \ref{en} just because some things are easier to see there.
+We can see that when $t\gg U$ is like we have $U=0$ the spectrum and the ground state are the same, in this case the electrons are not interacting so our ground states looks like
+\begin{equation}
+  \ket{GS} = \frac{1}{2}\left( \ket{\uparrow, \downarrow} - \ket{\downarrow, \uparrow}  + \ket{\uparrow \downarrow, 0} + \ket{0, \uparrow \downarrow}\right).
+\end{equation}
+On the other hand, if we have $t<<U$ then the energy is either zero. The ground state looks like
+\begin{equation}
+  \ket{GS} = \ket{\uparrow, \downarrow}.
+\end{equation}
+This means that when the interaction is really strong, the ground state takes the form of a singlet that can also be written as a product of two single states. Basically this means no quantum-correlation on the ground state.
+\end{solution}
+\end{questions}
+
+
+% \includegraphics[width=75mm]{}
+%
+%
+%  \captionof{figure}{}\label{}\vspace{0.5cm}

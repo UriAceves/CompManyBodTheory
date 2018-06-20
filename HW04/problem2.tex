@@ -1,0 +1,39 @@
+\begin{questions}
+\question{
+What effect does V has
+}
+\begin{solution}
+The hamiltonian we need to diagonalize now is (using the ordered basis $\ket{\uparrow,\downarrow},\ket{\downarrow,\uparrow},$ $ \ket{\uparrow \downarrow,0 }, \ket{0, \uparrow \downarrow}$)
+\begin{equation}
+  H = \begin{pmatrix}
+    V & 0 & -t & -t \\
+    0 & V & t & t \\
+    -t & t & U & 0 \\
+    -t & t & 0 & U
+\end{pmatrix}
+\end{equation}
+Again making the assumption that the eigenstates are covalent and ionic states
+\begin{eqnarray}
+  \ket{cov_\pm} = \frac{1}{\sqrt{2}}(\ket{\uparrow,\downarrow} \pm \ket{\downarrow, \uparrow}),\\
+  \ket{ion_\pm} = \frac{1}{\sqrt{2}}(\ket{\uparrow \downarrow,0} \pm \ket{0, \uparrow \downarrow}).
+\end{eqnarray}
+Using this states what we found is that the state $\ket{cov_+}$ has energy $\epsilon = V$, and the state $\ket{ion_-}$ has energy $\epsilon=U$.
+For the remaining ones, as we did before we construct the hamiltonian and find
+\begin{equation}
+  H = \begin{pmatrix}
+    V & -2t \\
+    -2t & U
+\end{pmatrix},
+\end{equation}
+Therefore
+\begin{equation}
+  \epsilon_\pm = \frac{V+U}{2} \pm \frac{1}{2} \sqrt{(U-V)^2 + 16t^2}.
+  \label{en2}
+\end{equation}
+Defining $\theta  = \tan^{-1} (4t/(U-V))$, the ground state will be
+\begin{equation}
+  \ket{GS} = \cos \left(\frac{\theta}{2}\right) \ket{cov_-} + \sin \left(\frac{\theta}{2}\right) \ket{ion_+}.
+\end{equation}
+If we make $V=0$ we can see that eq. \ref{en2} is the same as the one we calculated on the previous exercise, eq. \ref{en}. This should not be a surprise. So the effect of $V$ here is something like damping $U$ a little bit.
+\end{solution}
+\end{questions}
