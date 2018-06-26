@@ -1,0 +1,109 @@
+\begin{questions}
+\question{Time evolution of fermionic annihilator
+}
+\begin{solution}
+  Our hamiltonian for this problem is
+  \begin{equation}
+    H_0 = \sum_{k\sigma} \varepsilon_k c_{k\sigma}^\dagger c_{k\sigma}.
+  \end{equation}
+  We can prove trivially by using Taylor series for $t$ that
+  \begin{equation}
+    [e^{\pm iH_0 t},H_0] = 0.
+  \end{equation}
+  If we take the following relation
+  \begin{equation}
+    [ABC,D] = AB[C,D] + A[B,D]C + [A,D]BC,
+  \end{equation}
+  we can easily calculate the next commutator
+  \begin{equation}
+    \begin{aligned}[b]
+      [e^{iH_0 t} c_{k\sigma} e^{- iH_0 t}, H_0] &= e^{iH_0 t} c_{k\sigma}\cancelto{0}{[ e^{- iH_0 t}, H_0]}
+      &+ e^{iH_0 t}[ c_{k\sigma} , H_0]e^{- iH_0 t} + \cancelto{0}{[e^{iH_0 t} , H_0]}c_{k\sigma} e^{- iH_0 t},\\
+      & = e^{iH_0 t}[ c_{k\sigma} , H_0]e^{- iH_0 t}.
+      \label{aux1}
+    \end{aligned}
+  \end{equation}
+  Finally we can use the relation
+  \begin{equation}
+    [A,BC] = B[A,C] + [A,B]C,
+  \end{equation}
+  to calculate the following commutator
+  \begin{equation}
+    \begin{aligned}[b]
+      [c_{k\sigma},c_{j\gamma}^\dagger c_{j\gamma}] &=  c_{j\gamma}^\dagger [c_{k\sigma},c_{j\gamma}]+[c_{k\sigma},c_{j\gamma}^\dagger ]c_{j\gamma}, \\
+      &= c_{j\gamma}^\dagger (c_{k\sigma}c_{j\gamma} - c_{j\gamma}c_{k\sigma}) + (c_{k\sigma}c_{j\gamma}^\dagger - c_{j\gamma}^\dagger c_{k\sigma})c_{j\gamma},\\
+      &= c_{j\gamma}^\dagger c_{k\sigma}c_{j\gamma} + c_{k\sigma}c_{j\gamma}^\dagger c_{j\gamma} - (c_{j\gamma}^\dagger c_{j\gamma}c_{k\sigma}  + c_{j\gamma}^\dagger c_{k\sigma}c_{j\gamma}),\\
+      &= \cancelto{\delta_{jk}\delta_{\sigma \gamma}}{\{c_{j\gamma}^\dagger, c_{k\sigma} \}} c_{j\gamma} - c_{j\gamma}^\dagger \cancelto{0}{\{c_{j\gamma}c_{k\sigma}\}},\\
+      &= \delta_{jk}\delta_{\sigma \gamma} c_{j\gamma}.
+      \label{aux2}
+    \end{aligned}
+  \end{equation}
+  Where in the last step we used the anti-commutation rules of the fermionic creation and annihilation operators.\\
+
+  Now we can finally start. Let's consider the time evolution equation in the Heisenberg picture
+  \begin{equation}
+    i\frac{d}{dt} c_{k\sigma}(t) = [c_{k\sigma}(t), H_0],
+  \end{equation}
+  taking
+  \begin{equation}
+    c_{k\sigma}(t) = e^{iH_0 t} c_{k\sigma} e^{- iH_0 t},
+  \end{equation}
+  the time evolution equation takes the form
+  \begin{equation}
+    i\frac{d}{dt} c_{k\sigma}(t) = [e^{iH_0 t} c_{k\sigma} e^{- iH_0 t}, H_0].
+  \end{equation}
+  Luckily we can use eq. \ref{aux1} to move further and obtain
+  \begin{equation}
+    i\frac{d}{dt} c_{k\sigma}(t) =  e^{iH_0 t}[ c_{k\sigma} , H_0]e^{- iH_0 t}.
+  \end{equation}
+  Now is time to plug the hamiltoninan into this commutator
+  \begin{equation}
+    i\frac{d}{dt} c_{k\sigma}(t) =  e^{iH_0 t}[ c_{k\sigma} , \sum_{k\sigma} \varepsilon_k c_{k\sigma}^\dagger c_{k\sigma}]e^{- iH_0 t},
+  \end{equation}
+  since the commutator is linear and $\varepsilon_k\in\mathbb{R}$ we can transform the equation to this one
+  \begin{equation}
+    i\frac{d}{dt} c_{k\sigma}(t) =  e^{iH_0 t}\sum_{k\sigma} \varepsilon_k[ c_{k\sigma} ,  c_{k\sigma}^\dagger c_{k\sigma}]e^{- iH_0 t},
+  \end{equation}
+  and at this point we are lucky again, because now we can use eq. \ref{aux2} to continue our calculations
+  \begin{equation}
+    \begin{aligned}[b]
+      i\frac{d}{dt} c_{k\sigma}(t) &=  e^{iH_0 t}\sum_{k\sigma} \varepsilon_k \delta_{jk}\delta_{\sigma \gamma} c_{j\gamma}e^{- iH_0 t},\\
+      &=  e^{iH_0 t} \varepsilon_k  c_{k\sigma}e^{- iH_0 t},\\
+      &=  \varepsilon_k e^{iH_0 t}  c_{k\sigma}e^{- iH_0 t}, \\
+      &=  \varepsilon_k c_{k\sigma}(t),
+    \end{aligned}
+  \end{equation}
+  therefore
+  \begin{equation}
+    \frac{d}{dt} c_{k\sigma}(t) = -i \varepsilon_k c_{k\sigma}(t),
+    \label{dif}
+  \end{equation}
+  at this point the equation looks very familiar, and \textit{if it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck}. To make sure we suppose it is
+  \begin{equation}
+    c_{k\sigma}(t) = e^{\alpha t} c_{k\sigma}.
+  \end{equation}
+  If we differentiate this operator with respect to $t$, we will have
+  \begin{equation}
+    \frac{d}{dt} c_{k\sigma}(t) = \frac{d}{dt}e^{\alpha t} c_{k\sigma} = \alpha e^{\alpha t} c_{k\sigma} =\alpha c_{k\sigma}(t).
+    \label{dif2}
+  \end{equation}
+  Comparing eqs. \ref{dif} and \ref{dif2} we finally get that
+  \begin{equation}
+    \alpha = -i \varepsilon_k,
+  \end{equation}
+  so finally, our solution will be
+  \begin{equation}
+    c_{k\sigma}(t) = e^{-i \varepsilon_k t} c_{k\sigma}. \quad _\blacksquare
+  \end{equation}
+  There are two ways of getting the creation operator, the hard one would be to repeat similar calculations with $c_{k\sigma}^\dagger$, which we will not perform here. The easy one is just to take
+  \begin{equation}
+    c_{k\sigma}^\dagger(t) = (c_{k\sigma}(t))^\dagger = (e^{-i \varepsilon_k t} c_{k\sigma})^\dagger = e^{i \varepsilon_k t} c_{k\sigma}^\dagger.
+  \end{equation}
+\end{solution}
+\end{questions}
+
+
+% \includegraphics[width=75mm]{}
+%
+%
+%  \captionof{figure}{}\label{}\vspace{0.5cm}
